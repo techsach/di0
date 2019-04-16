@@ -1,0 +1,1 @@
+<bean id="bean" className="com.techsach.di0.beans.support.TestBean"></bean>

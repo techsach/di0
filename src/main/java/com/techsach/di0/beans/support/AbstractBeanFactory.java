@@ -9,7 +9,13 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
     protected Map<String, Object> idToBeanMap = new ConcurrentHashMap<>();
 
+    @SuppressWarnings("unchecked")
     public <T> T getBean(String id) {
-        return (T) idToBeanMap.get(id);
+        Object beanInstance = idToBeanMap.get(id);
+        if (beanInstance == null) {
+            throw new RuntimeException("Bean with id:[" + id + "] not found.");
+        }
+        return (T) beanInstance;
     }
+
 }

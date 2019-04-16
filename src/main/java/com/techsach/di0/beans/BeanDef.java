@@ -1,13 +1,15 @@
 package com.techsach.di0.beans;
 
-public class Bean {
+public class BeanDef {
 
     private final String id;
     private final String className;
+    private Class<?> beanClass;
 
-    protected Bean(String id, String className) {
+    public BeanDef(String id, String className, Class<?> beanClass) {
         this.id = id;
         this.className = className;
+        this.beanClass = beanClass;
     }
 
     public String getId() {
@@ -16,5 +18,9 @@ public class Bean {
 
     public String getClassName() {
         return className;
+    }
+
+    public Class<?> getBeanClass() {
+        return beanClass;
     }
 }
